@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Colors used in the SplashScreenActivity -->
+    <color name="text_color">#eeb38b</color>
+    <color name="accent_color">#7A0000</color>
+    <color name="dark_accent_color">#0d0d0f</color>
+    <color name="primary_background">#C19100</color>
 </resources>

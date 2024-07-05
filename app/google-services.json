@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "792264370198",
+    "project_id": "sweng-888-module-5-assignment",
+    "storage_bucket": "sweng-888-module-5-assignment.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:792264370198:android:d2e0c864e8c1b3aea02d37",
+        "android_client_info": {
+          "package_name": "sweng888.project.googleservices"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHQM2EYzYNbmNAUDxbfpIjsckGPS2h3a8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
