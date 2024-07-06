@@ -3,12 +3,15 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_item_list"
-            android:title="View magic items" />
+            android:title="View magic items"
+            android:icon="@drawable/view_items_icon"/>
         <item
             android:id="@+id/nav_create_item"
-            android:title="Add new item" />
+            android:title="Add new item"
+            android:icon="@drawable/add_magic_item_icon"/>
         <item
             android:id="@+id/nav_delete_item"
-            android:title="Delete item" />
+            android:title="Delete item"
+            android:icon="@drawable/delete_item_icon"/>
     </group>
 </menu>

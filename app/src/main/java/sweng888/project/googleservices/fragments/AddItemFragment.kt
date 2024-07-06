@@ -32,7 +32,6 @@ class AddItemFragment : Fragment(), View.OnClickListener {
         val rootView: View = inflater.inflate(R.layout.fragment_add_magic_item, container, false)
 
         m_firebase_database = Firebase.database.reference
-
         // Get references to the EditText views
         m_item_name_edit_text = rootView.findViewById(R.id.new_item_name)
         m_item_rarity_edit_text = rootView.findViewById(R.id.new_item_rarity)
@@ -67,19 +66,25 @@ class AddItemFragment : Fragment(), View.OnClickListener {
         }
 
         /** Create a new instance of Magic Item  */
-        val new_magic_item = MagicItem(name, rarity, description).toDatabaseFormat()
+        val new_magic_item = MagicItem(name, rarity, description)
 
-        m_firebase_database.child("Magic Items").child(new_magic_item.item_name)
-            .setValue(new_magic_item)
+        m_firebase_database.child("Magic Items").child(new_magic_item.item_name!!)
+            .setValue(new_magic_item.toDatabaseFormat()).addOnSuccessListener {
+                Toast.makeText(context, "Magic item successfully created", Toast.LENGTH_SHORT)
+                    .show()
+            }.addOnFailureListener {
+                Toast.makeText(context, "Failed to create magic item", Toast.LENGTH_SHORT)
+                    .show()
+            }
 
-        Toast.makeText(context, "Magic item successfully created", Toast.LENGTH_SHORT)
-            .show()
+
         clearFields()
 
     }
 
     fun clearFields() {
         m_item_name_edit_text.setText("")
+        m_item_rarity_edit_text.setText("")
         m_item_desc_edit_text.setText("")
     }
 }

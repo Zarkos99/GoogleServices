@@ -22,10 +22,10 @@ class MagicItemAdapter(private val magic_item_list: ArrayList<MagicItem>) :
     }
 
     override fun onBindViewHolder(holder: MagicItemViewHolder, position: Int) {
-        val book: MagicItem? = magic_item_list[position]
-        holder.magic_item_name.text = book?.item_name
-        holder.magic_item_rarity.text = book?.rarity
-        holder.magic_item_description.text = book?.description
+        val book: MagicItem = magic_item_list[position]
+        holder.magic_item_name.text = book.item_name
+        holder.magic_item_rarity.text = book.rarity
+        holder.magic_item_description.text = book.description
     }
 
     /** Added a new method to include a new Magic item, and update the list

@@ -113,8 +113,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     finish()
                 } else {
                     Toast.makeText(
-                        this@LoginActivity, "Account creation failed",
-                        Toast.LENGTH_SHORT
+                        this@LoginActivity, "Account creation failed " + task.result,
+                        Toast.LENGTH_LONG
                     ).show()
                 }
             }

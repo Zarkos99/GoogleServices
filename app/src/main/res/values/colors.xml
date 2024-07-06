@@ -6,6 +6,6 @@
     <!-- Colors used in the SplashScreenActivity -->
     <color name="text_color">#eeb38b</color>
     <color name="accent_color">#7A0000</color>
-    <color name="dark_accent_color">#0d0d0f</color>
-    <color name="primary_background">#C19100</color>
+    <color name="secondary_accent_color">#C19100</color>
+    <color name="primary_background">#0d0d0f</color>
 </resources>

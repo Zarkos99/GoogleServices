@@ -5,5 +5,8 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.GoogleServices" parent="Base.Theme.GoogleServices" />
+    <style name="Theme.GoogleServices" parent="Base.Theme.GoogleServices">
+        <item name="android:editTextColor">@color/text_color</item>
+        <item name="android:textColorHint">@color/text_color</item>
+    </style>
 </resources>
