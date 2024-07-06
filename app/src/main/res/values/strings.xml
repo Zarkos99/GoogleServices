@@ -4,6 +4,7 @@
     <string name="navigation_drawer_close">Close</string>
 
     <string name="create_account"><u>Create Account</u></string>
+    <string name="log_out"><u>Log Out</u></string>
     <string name="app_name">D&amp;D Squire</string>
     <string name="string_create_account">string/create_account</string>
 </resources>

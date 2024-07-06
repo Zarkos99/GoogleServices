@@ -1,14 +1,20 @@
 package sweng888.project.googleservices
 
+import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 import sweng888.project.googleservices.fragments.AddItemFragment
 import sweng888.project.googleservices.fragments.DeleteItemFragment
 import sweng888.project.googleservices.fragments.ItemListFragment
@@ -27,6 +33,20 @@ class MainNavigationActivity : AppCompatActivity(),
 
         m_drawer_layout = findViewById(R.id.nav_drawer_layout)
         m_navigation_view = findViewById(R.id.nav_view)
+
+
+        val firebase_auth = FirebaseAuth.getInstance()
+        val nav_header = m_navigation_view.getHeaderView(0)
+        val log_out_text = nav_header.findViewById<TextView>(R.id.log_out_button)
+        log_out_text.setOnClickListener {
+            firebase_auth.signOut()
+            val intent = Intent(
+                this@MainNavigationActivity,
+                LoginActivity::class.java
+            )
+            startActivity(intent)
+            finish()
+        }
 
         /** Set the listener for the NavigationView. The Main Activity should
          * implement the interface NavigationView.OnNavigationItemSelectedListener  */

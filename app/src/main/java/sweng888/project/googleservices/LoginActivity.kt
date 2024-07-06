@@ -3,6 +3,7 @@ package sweng888.project.googleservices
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -10,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.tasks.RuntimeExecutionException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
@@ -42,7 +44,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         val password = m_password_edit_text_view.getText().toString().trim()
 
         /** Create an instance of the Firebase Authentication component */
-        m_firebase_auth = FirebaseAuth.getInstance();
+        m_firebase_auth = FirebaseAuth.getInstance()
 
         // Error handling for empty username
         if (email.isEmpty()) {
@@ -112,8 +114,16 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     startActivity(intent)
                     finish()
                 } else {
+                    val exception_string_array = task.exception.toString()
+                        .split(":")
+                    var exception_string = ""
+                    if (exception_string_array.size > 1) {
+                        exception_string = ": " + exception_string_array[1].trim()
+                    }
+
                     Toast.makeText(
-                        this@LoginActivity, "Account creation failed " + task.result,
+                        this@LoginActivity,
+                        "Account creation failed" + exception_string,
                         Toast.LENGTH_LONG
                     ).show()
                 }
