@@ -100,6 +100,9 @@ class ItemListFragment : Fragment() {
         return rootView
     }
 
+    /**
+     * Set the active query with forced Pascal-case for the first word
+     */
     fun setActiveQuery(new_query: String) {
         var lowercase_string = ""
         if (new_query.isEmpty()) {
@@ -115,6 +118,9 @@ class ItemListFragment : Fragment() {
             new_query[0].uppercase(Locale.ROOT) + lowercase_string
     }
 
+    /**
+     * Query the database for all items that match the active query
+     */
     fun updateFilteredMagicItemList() {
         m_firebase_database.child("Magic Items").orderByKey().startAt(m_active_query).get()
             .addOnSuccessListener {

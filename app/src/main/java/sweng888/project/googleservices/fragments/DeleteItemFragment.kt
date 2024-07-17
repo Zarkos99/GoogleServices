@@ -40,6 +40,9 @@ class DeleteItemFragment : Fragment(), View.OnClickListener {
         return rootView
     }
 
+    /**
+     * Execute appropriate logic depending on which button view was selected
+     */
     override fun onClick(view: View) {
         when (view.getId()) {
             R.id.button_confirm -> confirm()
@@ -48,6 +51,9 @@ class DeleteItemFragment : Fragment(), View.OnClickListener {
         }
     }
 
+    /**
+     * Force Pascal-case on the first word of the user's input
+     */
     fun getItemNameUserInput(): String {
         var user_input = m_item_name_edit_text.text.toString()
             .trim()
@@ -61,6 +67,9 @@ class DeleteItemFragment : Fragment(), View.OnClickListener {
         return user_input[0].uppercase(Locale.ROOT) + lowercase_string
     }
 
+    /**
+     * Delete a magic item by name from the database
+     */
     fun confirm() {
         val name = getItemNameUserInput()
 

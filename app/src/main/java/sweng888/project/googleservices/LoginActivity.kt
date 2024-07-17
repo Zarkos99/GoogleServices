@@ -81,6 +81,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
+    /**
+     * Handle signing in with user-supplied email and password
+     */
     private fun signIn(email: String, password: String) {
         m_firebase_auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
@@ -93,9 +96,17 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     startActivity(intent)
                     finish()
                 } else {
+                    val exception_string_array = task.exception.toString()
+                        .split(":")
+                    var exception_string = ""
+                    if (exception_string_array.size > 1) {
+                        exception_string = ": " + exception_string_array[1].trim()
+                    }
+
                     Toast.makeText(
-                        this@LoginActivity, "Authentication failed",
-                        Toast.LENGTH_SHORT
+                        this@LoginActivity,
+                        "Authentication failed" + exception_string,
+                        Toast.LENGTH_LONG
                     ).show()
                 }
             }

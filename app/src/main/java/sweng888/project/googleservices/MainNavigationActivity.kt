@@ -69,6 +69,9 @@ class MainNavigationActivity : AppCompatActivity(),
             .replace(R.id.fragment_container, ItemListFragment()).commit()
     }
 
+    /**
+     * Execute appropriate logic depending on which navigation menu item was selected
+     */
     override fun onNavigationItemSelected(item: MenuItem): Boolean { // Handle navigation view item clicks here.
         val id = item.itemId
 

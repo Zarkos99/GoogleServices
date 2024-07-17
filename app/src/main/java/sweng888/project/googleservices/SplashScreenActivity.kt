@@ -18,11 +18,9 @@ class SplashScreenActivity : AppCompatActivity() {
         /** Configure and start the progress bar animation  */
         val m_progress_bar = findViewById(R.id.splash_progress_bar) as ProgressBar
 
-
-        val duration: Long = 3000
-
         /** initialize the progress bar and animate it from 0% to 100% using an ObjectAnimator
          * object. The animation uses a decelerate interpolator to give it a smoother animation  */
+        val duration: Long = 3000
         val animation = ObjectAnimator.ofInt(m_progress_bar, "progress", 0, 100)
         animation.setDuration(duration)
         animation.interpolator = DecelerateInterpolator()
@@ -32,10 +30,6 @@ class SplashScreenActivity : AppCompatActivity() {
          * The delay, an intent is created to launch the LoginActivity, and the finish()
          * method is called to destroy the splash screen activity.  */
         Handler().postDelayed({
-            /** Start the next activity after a delay  */
-            /** Start the next activity after a delay  */
-            /** Start the next activity after a delay  */
-
             /** Start the next activity after a delay  */
             val intent = Intent(
                 this@SplashScreenActivity,

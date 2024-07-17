@@ -47,6 +47,9 @@ class AddItemFragment : Fragment(), View.OnClickListener {
         return rootView
     }
 
+    /**
+     * Execute appropriate logic depending on which button view was selected
+     */
     override fun onClick(view: View) {
         when (view.getId()) {
             R.id.button_confirm -> confirm()
@@ -55,11 +58,15 @@ class AddItemFragment : Fragment(), View.OnClickListener {
         }
     }
 
+    /**
+     * Create a new magic item and add it to the database
+     */
     fun confirm() {
         val name = m_item_name_edit_text.text.toString().trim()
         val rarity = m_item_rarity_edit_text.text.toString().trim()
         val description = m_item_desc_edit_text.text.toString().trim()
 
+        // Ensure none of the user inputs are empty
         if (name.isEmpty() || rarity.isEmpty() || description.isEmpty()) {
             Toast.makeText(context, "Please fill in all fields", Toast.LENGTH_SHORT).show()
             return
